@@ -1,0 +1,16 @@
+export const themelight = [
+  "default",
+  "Fuji",
+  "light",
+  "retro",
+  "winter",
+  "autumn",
+  "nord",
+  "valentine",
+  "bumblebee",
+  "emerald",
+  "garden",
+  "pastel",
+  "cmyk",
+  "lofi",
+];
