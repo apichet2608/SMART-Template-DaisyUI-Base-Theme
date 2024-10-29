@@ -7,6 +7,7 @@ function RouteComponents() {
   return (
     <>
       <Routes>
+        <Route path="/" element={<Draf />} />
         <Route path="/smart-web-app/" element={<Draf />} />
         {/* Catch-all route for 404 page */}
         <Route path="*" element={<NotFoundPage />} />
