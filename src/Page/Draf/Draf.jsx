@@ -1,36 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 
-const MovingButton = () => {
-  const [position, setPosition] = useState({ top: 100, left: 100 });
-
-  const handleMouseEnter = () => {
-    const newTop = Math.floor(Math.random() * (window.innerHeight - 50));
-    const newLeft = Math.floor(Math.random() * (window.innerWidth - 100));
-    setPosition({ top: newTop, left: newLeft });
-  };
-  const moveButton = () => {
-    const newTop = Math.floor(Math.random() * (window.innerHeight - 50));
-    const newLeft = Math.floor(Math.random() * (window.innerWidth - 100));
-    setPosition({ top: newTop, left: newLeft });
-  };
-  const handleClick = () => {
-    alert("You caught me!");
-  };
-
+function Draf() {
   return (
-    <button
-      onMouseEnter={handleMouseEnter}
-      onTouchStart={moveButton} // เพิ่มเหตุการณ์สำหรับมือถือ
-      onClick={handleClick}
-      className="absolute px-4 py-2 text-white bg-blue-600 rounded-lg shadow-lg transform transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none"
-      style={{
-        top: `${position.top}px`,
-        left: `${position.left}px`,
-      }}
-    >
-      กดเพื่อรับ500บาท
-    </button>
+    <>
+      <iframe
+        title="Jungle Animal: Cartoon Hippo"
+        frameBorder="0"
+        allowFullScreen
+        mozallowfullscreen="true"
+        webkitallowfullscreen="true"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        src="https://sketchfab.com/models/46e91129343a4aaf80fbd665c5b44c14/embed"
+        className="w-full h-screen"
+      ></iframe>
+    </>
   );
-};
+}
 
-export default MovingButton;
+export default Draf;
