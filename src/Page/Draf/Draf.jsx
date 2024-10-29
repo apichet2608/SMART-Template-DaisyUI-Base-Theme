@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 
 function Draf() {
   const [text, setText] = useState("");
+  const { theme, setTheme } = useTheme();
 
   // Load the stored value from localStorage when the component mounts
   useEffect(() => {
@@ -27,7 +29,7 @@ function Draf() {
   return (
     <div className="grid mx-2 text-base-content">
       <article className="prose">
-        <h1>Draf</h1>
+        <h1>{theme}</h1>
         <textarea
           value={text}
           onChange={handleChange}
