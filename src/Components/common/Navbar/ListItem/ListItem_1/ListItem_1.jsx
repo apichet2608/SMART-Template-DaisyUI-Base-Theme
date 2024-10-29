@@ -14,15 +14,7 @@ function ListItem({ iconPaths, title, links, closeDrawer }) {
       <details>
         <summary className="group">
           <span>
-            {iconPaths.map((path, index) => (
-              <img
-                key={index}
-                src={path.img}
-                alt="icon"
-                width={"24px"}
-                height={"24px"}
-              />
-            ))}
+            <img src={iconPaths} alt="icon" width={"24px"} height={"24px"} />
           </span>
           {title}
         </summary>
