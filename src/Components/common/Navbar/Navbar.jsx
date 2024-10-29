@@ -6,7 +6,7 @@ import Fuji from "/Pic/Fuji.png";
 function Navbar() {
   return (
     <>
-      <div className="fixed navbar bg-base-100 text-base-content border-none z-50">
+      <div className="fixed navbar bg-base-300 text-base-content border-none z-50">
         <div className="navbar-start">
           <Drawer />
         </div>

@@ -1,6 +1,4 @@
 import { useTheme } from "next-themes";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import NightsStayIcon from "@mui/icons-material/NightsStay";
 
 const lightThemes = [
   { label: "Fuji", value: "Fuji" },
@@ -15,46 +13,59 @@ const lightThemes = [
   { label: "Garden", value: "garden" },
   { label: "Pastel", value: "pastel" },
   { label: "Cmyk", value: "cmyk" },
-  { label: "lofi", value: "lofi" },
+  { label: "Lofi", value: "lofi" },
+  { label: "Cupcake", value: "cupcake" },
+  { label: "Corporate", value: "corporate" },
+  { label: "Cyberpunk", value: "cyberpunk" },
+  { label: "Aqua", value: "aqua" },
+  { label: "Fantasy", value: "fantasy" },
+  { label: "Wireframe", value: "wireframe" },
+  { label: "Acid", value: "acid" },
+  { label: "Lemonade", value: "lemonade" },
 ];
 
 const darkThemes = [
   { label: "Dark", value: "dark" },
+  { label: "Business", value: "business" },
   { label: "Dim", value: "dim" },
-  { label: "Night", value: "night" },
+  { label: "Sunset", value: "sunset" },
   { label: "Dracula", value: "dracula" },
   { label: "Halloween", value: "halloween" },
   { label: "Forest", value: "forest" },
   { label: "Luxury", value: "luxury" },
+  { label: "Black", value: "black" },
+  { label: "Night", value: "night" },
+  { label: "Coffee", value: "coffee" },
+  { label: "Synthwave", value: "synthwave" },
 ];
 
 const ThemeSwitch = () => {
   const { theme, setTheme } = useTheme();
 
-  // Combine light and dark themes for select options
-  const allThemes = [
-    ...lightThemes.map((themeOption) => ({ ...themeOption, type: "light" })),
-    ...darkThemes.map((themeOption) => ({ ...themeOption, type: "dark" })),
-  ];
+  const allThemes = [...lightThemes, ...darkThemes];
 
   return (
-    <div className="mx-1">
-      <label htmlFor="theme-select" className="flex items-center">
-        <span className="mr-2">Theme</span>
-        <Brightness4Icon className="hidden md:inline" />
-        <NightsStayIcon className="hidden md:inline" />
-      </label>
+    <div className="flex items-center space-x-2">
       <select
         id="theme-select"
         value={theme}
         onChange={(e) => setTheme(e.target.value)}
-        className="p-2 border border-gray-300 rounded"
+        className="select select-bordered w-full max-w-xs select-sm"
       >
-        {allThemes.map((themeOption) => (
-          <option key={themeOption.value} value={themeOption.value}>
-            {themeOption.label}
-          </option>
-        ))}
+        <optgroup label="Light Themes">
+          {lightThemes.map((themeOption) => (
+            <option key={themeOption.value} value={themeOption.value}>
+              {themeOption.label}
+            </option>
+          ))}
+        </optgroup>
+        <optgroup label="Dark Themes">
+          {darkThemes.map((themeOption) => (
+            <option key={themeOption.value} value={themeOption.value}>
+              {themeOption.label}
+            </option>
+          ))}
+        </optgroup>
       </select>
     </div>
   );
