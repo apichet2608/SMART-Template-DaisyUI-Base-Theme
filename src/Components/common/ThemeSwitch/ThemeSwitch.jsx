@@ -31,71 +31,31 @@ const darkThemes = [
 const ThemeSwitch = () => {
   const { theme, setTheme } = useTheme();
 
-  return (
-    <div onChange={(e) => setTheme(e.target.value)} className="dropdown mx-1">
-      <div tabIndex={0} role="button" className="btn">
-        Theme
-        <svg
-          width="12px"
-          height="12px"
-          className="h-2 w-2 fill-current opacity-60 inline-block"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 2048 2048"
-        >
-          <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
-        </svg>
-      </div>
-      <ul className="dropdown-content z-[1] p-2 shadow-2xl bg-primary-content text-primary rounded-box grid gap-2 overflow-y-auto max-h-[600px] custom-scrollbar">
-        <li>
-          <label>
-            <input
-              type="radio"
-              name="theme-dropdown"
-              className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-              aria-label={"Default"}
-              value={"default"}
-              defaultChecked={theme === "default"}
-            />
-          </label>
-        </li>
-        <div className="divider divider-accent text-accent text-xs font-bold">
-          <Brightness4Icon />
-        </div>
-        {/* Light Themes */}
-        {lightThemes.map((themeOption) => (
-          <li key={themeOption.value}>
-            <label>
-              <input
-                type="radio"
-                name="theme-dropdown"
-                className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                aria-label={themeOption.label}
-                value={themeOption.value}
-                defaultChecked={theme === themeOption.value}
-              />
-            </label>
-          </li>
-        ))}
+  // Combine light and dark themes for select options
+  const allThemes = [
+    ...lightThemes.map((themeOption) => ({ ...themeOption, type: "light" })),
+    ...darkThemes.map((themeOption) => ({ ...themeOption, type: "dark" })),
+  ];
 
-        <div className="divider divider-accent text-accent text-xs font-bold">
-          <NightsStayIcon />
-        </div>
-        {/* Dark Themes */}
-        {darkThemes.map((themeOption) => (
-          <li key={themeOption.value}>
-            <label>
-              <input
-                type="radio"
-                name="theme-dropdown"
-                className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                aria-label={themeOption.label}
-                value={themeOption.value}
-                defaultChecked={theme === themeOption.value}
-              />
-            </label>
-          </li>
+  return (
+    <div className="mx-1">
+      <label htmlFor="theme-select" className="flex items-center">
+        <span className="mr-2">Theme</span>
+        <Brightness4Icon className="hidden md:inline" />
+        <NightsStayIcon className="hidden md:inline" />
+      </label>
+      <select
+        id="theme-select"
+        value={theme}
+        onChange={(e) => setTheme(e.target.value)}
+        className="p-2 border border-gray-300 rounded"
+      >
+        {allThemes.map((themeOption) => (
+          <option key={themeOption.value} value={themeOption.value}>
+            {themeOption.label}
+          </option>
         ))}
-      </ul>
+      </select>
     </div>
   );
 };
