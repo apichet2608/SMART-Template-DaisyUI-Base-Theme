@@ -7,6 +7,11 @@
   --foreground: black;
 }
 
+body {
+  background-color: oklch(var(--b3));
+}
+
+
 bodyfont {
   font-family: "Inter Variable", sans-serif;
 }
