@@ -22,7 +22,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   // <React.StrictMode>
   <>
     <NextUIProvider>
-      <ThemeProvider>
+      <ThemeProvider defaultTheme="light" enableSystem>
         <Router>
           <App />
         </Router>
