@@ -12,6 +12,7 @@ function Draf() {
         machine={machine}
         IS_No_machine={IS_No_machine}
       />
+      <p className="text-2xl ">machine</p>
     </div>
   );
 }
