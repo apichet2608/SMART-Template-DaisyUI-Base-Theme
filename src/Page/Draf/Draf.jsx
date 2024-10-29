@@ -26,15 +26,26 @@ function Draf() {
     localStorage.removeItem("draftText");
   };
 
+  // Toggle theme between light and dark
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
+
   return (
     <div className="grid mx-2 text-base-content">
       <article className="prose">
-        <h1>{theme}</h1>
+        <h1>Current Theme: {theme}</h1>
+        <button
+          onClick={toggleTheme}
+          className="mt-2 p-2 bg-blue-500 text-white rounded"
+        >
+          Toggle Theme
+        </button>
         <textarea
           value={text}
           onChange={handleChange}
           placeholder="Type your draft here..."
-          className="w-full p-2 border border-gray-300 rounded"
+          className="w-full p-2 border border-gray-300 rounded "
         />
         <button
           onClick={handleClear}
