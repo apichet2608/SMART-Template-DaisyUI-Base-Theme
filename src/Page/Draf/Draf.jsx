@@ -4,9 +4,8 @@ const MovingButton = () => {
   const [position, setPosition] = useState({ top: 100, left: 100 });
 
   const handleMouseEnter = () => {
-    // Randomly move the button to a new position
-    const newTop = Math.floor(Math.random() * (window.innerHeight - 50)); // Adjust for button height
-    const newLeft = Math.floor(Math.random() * (window.innerWidth - 100)); // Adjust for button width
+    const newTop = Math.floor(Math.random() * (window.innerHeight - 50));
+    const newLeft = Math.floor(Math.random() * (window.innerWidth - 100));
     setPosition({ top: newTop, left: newLeft });
   };
 
@@ -18,11 +17,10 @@ const MovingButton = () => {
     <button
       onMouseEnter={handleMouseEnter}
       onClick={handleClick}
+      className="absolute px-4 py-2 text-white bg-blue-600 rounded-lg shadow-lg transform transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none"
       style={{
-        position: "absolute",
         top: `${position.top}px`,
         left: `${position.left}px`,
-        transition: "top 0.2s, left 0.2s", // Add smooth transition
       }}
     >
       Try to Click Me!
