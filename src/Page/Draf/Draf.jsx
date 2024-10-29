@@ -8,7 +8,11 @@ const MovingButton = () => {
     const newLeft = Math.floor(Math.random() * (window.innerWidth - 100));
     setPosition({ top: newTop, left: newLeft });
   };
-
+  const moveButton = () => {
+    const newTop = Math.floor(Math.random() * (window.innerHeight - 50));
+    const newLeft = Math.floor(Math.random() * (window.innerWidth - 100));
+    setPosition({ top: newTop, left: newLeft });
+  };
   const handleClick = () => {
     alert("You caught me!");
   };
@@ -16,6 +20,7 @@ const MovingButton = () => {
   return (
     <button
       onMouseEnter={handleMouseEnter}
+      onTouchStart={moveButton} // เพิ่มเหตุการณ์สำหรับมือถือ
       onClick={handleClick}
       className="absolute px-4 py-2 text-white bg-blue-600 rounded-lg shadow-lg transform transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none"
       style={{
@@ -23,7 +28,7 @@ const MovingButton = () => {
         left: `${position.left}px`,
       }}
     >
-      Try to Click Me!
+      กดเพื่อรับ500บาท
     </button>
   );
 };
