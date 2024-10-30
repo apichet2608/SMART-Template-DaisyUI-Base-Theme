@@ -19,7 +19,7 @@ export default function MainContent() {
       {matchedRoute && matchedRoute.showAppBar && (
         <>
           <Navbar />
-          <Box component="div" sx={{ pb: "72px" }} />
+          {/* <Box component="div" sx={{ pb: "72px" }} /> */}
           <div className="container mx-auto">
             <div className="flex flex-col flex-wrap gap-4 items-end">
               <Breadcrumbs_UI currentRoute={matchedRoute} />

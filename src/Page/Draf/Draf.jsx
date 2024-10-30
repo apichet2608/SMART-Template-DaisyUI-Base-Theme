@@ -12,7 +12,20 @@ function Draf() {
         machine={machine}
         IS_No_machine={IS_No_machine}
       />
-      <p className="text-2xl ">{machine}</p>
+      <article className=" prose">
+        <h1>TEST</h1>
+        <h2>TEST</h2>
+        <h3>TEST</h3>
+        <h4>TEST</h4>
+        <h1>TEST</h1>
+        <h2>TEST</h2>
+        <h3>TEST</h3>
+        <h4>TEST</h4>
+        <h1>TEST</h1>
+        <h2>TEST</h2>
+        <h3>TEST</h3>
+        <h4>TEST</h4>
+      </article>
     </div>
   );
 }
