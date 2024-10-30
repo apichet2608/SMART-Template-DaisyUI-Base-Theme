@@ -5,19 +5,19 @@ const routes = [
   {
     path: "/",
     breadcrumbs: ["Home"],
-    showAppBar: false,
+    showAppBar: true,
     Element: Draf, // Pass the component reference, not JSX
   },
   {
     path: "/smart-web-app/",
     breadcrumbs: ["Home"],
-    showAppBar: false,
+    showAppBar: true,
     Element: Draf, // Pass the component reference
   },
   {
     path: "/smart-web-app/test_camera",
     breadcrumbs: ["Home", "Test Camera"],
-    showAppBar: false,
+    showAppBar: true,
     Element: TEST_CAMERA, // Pass the component reference
   },
 ];

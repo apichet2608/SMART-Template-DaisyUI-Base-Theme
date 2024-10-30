@@ -16,9 +16,7 @@ body {
 }
 
 body {
-  /* background-color: oklch(var(--b1)); */
-  background: linear-gradient(to bottom right, #1e1b4b, #3b0764, #2e1065);
-  /* Custom gradient */
+  background-color: oklch(var(--b1));
   font-family: "Inter Variable", sans-serif;
   color: oklch(var(--bc));
   min-height: 100vh;
