@@ -20,11 +20,11 @@ export default function MainContent() {
         <>
           <Navbar />
           {/* <Box component="div" sx={{ pb: "72px" }} /> */}
-          <div className="container mx-auto">
-            <div className="flex flex-col flex-wrap gap-4 items-end">
-              <Breadcrumbs_UI currentRoute={matchedRoute} />
-            </div>
+          {/* <div className="container mx-auto"> */}
+          <div className="flex flex-col flex-wrap gap-4 items-end">
+            <Breadcrumbs_UI currentRoute={matchedRoute} />
           </div>
+          {/* </div> */}
         </>
       )}
       <RouteComponents />
