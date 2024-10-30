@@ -3,25 +3,25 @@ import { Briefcase } from "lucide-react";
 
 const experiences = [
   {
-    company: "Fujikura Electronic",
-    position: "Software Engineer",
-    period: "2023 - Present",
+    company: "Tech Innovators Inc",
+    position: "Senior Software Engineer",
+    period: "2020 - Present",
     description: [
-      "Lead development of applications using React and Node.js",
+      "Led development of cloud-native applications using React and Node.js",
       "Mentored junior developers and conducted code reviews",
       "Improved application performance by 40% through optimization",
     ],
   },
-  //   {
-  //     company: "Digital Solutions Ltd",
-  //     position: "Software Engineer",
-  //     period: "2018 - 2020",
-  //     description: [
-  //       "Developed and maintained multiple client-facing applications",
-  //       "Implemented CI/CD pipelines reducing deployment time by 60%",
-  //       "Collaborated with UX team to improve user experience",
-  //     ],
-  //   },
+  {
+    company: "Digital Solutions Ltd",
+    position: "Software Engineer",
+    period: "2018 - 2020",
+    description: [
+      "Developed and maintained multiple client-facing applications",
+      "Implemented CI/CD pipelines reducing deployment time by 60%",
+      "Collaborated with UX team to improve user experience",
+    ],
+  },
 ];
 
 export function Experience() {
