@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-function ListItem({ iconPaths, title, links, closeDrawer }) {
+function ListItemWithMainIcon({ iconPaths, title, links, closeDrawer }) {
   const location = useLocation();
   const [currentPath, setCurrentPath] = useState(location.pathname);
 
@@ -40,4 +40,4 @@ function ListItem({ iconPaths, title, links, closeDrawer }) {
   );
 }
 
-export default ListItem;
+export default ListItemWithMainIcon;

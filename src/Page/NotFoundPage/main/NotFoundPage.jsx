@@ -18,7 +18,7 @@ function NotFoundPage() {
         <p className="text-xl mb-6">
           Oops! The page you're looking for doesn't exist.
         </p>
-        <a href="/smart-e-working/Login" className=" btn btn-primary">
+        <a href="/" className=" btn btn-primary">
           Go Home
         </a>
       </div>

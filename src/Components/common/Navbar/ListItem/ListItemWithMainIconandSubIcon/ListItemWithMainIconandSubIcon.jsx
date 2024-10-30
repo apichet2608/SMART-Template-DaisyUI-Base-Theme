@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-function ListiTem_2({ iconPaths, title, links, closeDrawer }) {
+function ListItemWithMainIconandSubIcon({
+  iconPaths,
+  title,
+  links,
+  closeDrawer,
+}) {
   const location = useLocation();
   const [currentPath, setCurrentPath] = useState(location.pathname);
 
@@ -48,4 +53,4 @@ function ListiTem_2({ iconPaths, title, links, closeDrawer }) {
   );
 }
 
-export default ListiTem_2;
+export default ListItemWithMainIconandSubIcon;
