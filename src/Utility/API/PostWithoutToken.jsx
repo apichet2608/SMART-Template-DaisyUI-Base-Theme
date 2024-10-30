@@ -2,87 +2,95 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { themelight } from "../../Components/common/ThemeSwitch/themelight";
 
-const PostAPI = async (databody, url) => {
-  const theme = !themelight.includes(localStorage.getItem("theme"))
-    ? "dark"
-    : "light";
-  const showToast = toast.loading("⌛️ Please wait...", {
+const getTheme = () => {
+  const theme = localStorage.getItem("theme");
+  return themelight.includes(theme) ? "light" : "dark";
+};
+
+const showLoadingToast = (theme) =>
+  toast.loading("⌛️ Please wait...", {
     position: "bottom-right",
     theme,
     isLoading: true,
     autoClose: false,
   });
 
-  const config = {
-    method: "post",
-    maxBodyLength: Infinity,
-    url,
-    headers: {
-      "Content-Type": "application/json",
-    },
-    data: databody,
-  };
+const updateToast = (toastId, message, type, theme, autoClose = 1000) => {
+  toast.update(toastId, {
+    render: message,
+    type,
+    isLoading: false,
+    autoClose,
+    position: "bottom-right",
+    theme,
+  });
+};
 
-  const updateToast = (message, type, autoClose = 1000) => {
-    toast.update(showToast, {
-      render: message,
-      type,
-      isLoading: false,
-      autoClose,
-      position: "bottom-right",
-      theme,
-    });
+const createMessage = (status, description) => (
+  <p>
+    <b>Status:</b> {status}
+    <br />
+    <b>Desc:</b> {description}
+  </p>
+);
+
+const handleSuccessResponse = (toastId, response, theme) => {
+  const message = createMessage(response.data.status, response.data.message);
+  const statusType = response.data.status === "OK" ? "success" : "warning";
+  const autoClose = response.data.status === "OK" ? 1000 : 5000;
+
+  updateToast(toastId, message, statusType, theme, autoClose);
+  return {
+    status: response.data.status,
+    data: response.data.data || response.data,
+    message: response.data.message,
   };
+};
+
+const handleErrorResponse = (toastId, error, url, theme) => {
+  const errorMessage =
+    error.response?.data?.message || error.message || "Error";
+  const message =
+    error.message === "Network Error"
+      ? "Please Check Your Network connection⚠️"
+      : errorMessage;
+
+  updateToast(
+    toastId,
+    <p>
+      <b>Error:</b> {message}
+      <br />
+      <b>URL:</b> 🔗{url}
+    </p>,
+    "error",
+    theme,
+    2500
+  );
+
+  return {
+    status: "Catch",
+    data: [],
+    message: errorMessage,
+  };
+};
+
+const PostAPI = async (databody, url) => {
+  const theme = getTheme();
+  const toastId = showLoadingToast(theme);
 
   try {
-    const response = await axios.request(config);
-    const message = (
-      <p>
-        <b>Status:</b> {response.data.status}
-        <br />
-        <b>Desc:</b> {response.data.message}
-      </p>
-    );
-
-    if (response.data.status === "OK") {
-      updateToast(message, "success");
-      return {
-        status: "OK",
-        data: response.data.data,
-        message: response.data.message,
-      };
-    } else {
-      updateToast(message, "warning", 5000);
-      return {
-        status: "ERROR",
-        data: response.data,
-        message: response.data.message,
-      };
-    }
-  } catch (error) {
-    const errorMessage =
-      error.response?.data?.message || error.message || "Error";
-
-    const networkErrorMessage =
-      error.message === "Network Error"
-        ? "Please Check Your Network connection⚠️"
-        : errorMessage;
-
-    updateToast(
-      <p>
-        <b>Error:</b> {networkErrorMessage}
-        <br />
-        <b>URL:</b> 🔗{url}
-      </p>,
-      "error",
-      2500
-    );
-
-    return {
-      status: "Catch",
-      data: [],
-      message: error,
+    const config = {
+      method: "post",
+      maxBodyLength: Infinity,
+      url,
+      headers: { "Content-Type": "application/json" },
+      data: databody,
     };
+
+    const response = await axios.request(config);
+    return handleSuccessResponse(toastId, response, theme);
+  } catch (error) {
+    return handleErrorResponse(toastId, error, url, theme);
   }
 };
 

@@ -11,6 +11,10 @@ export default {
   theme: {
     extend: {},
     screens: {
+      ipx: "375px", // iPhone X-14 Pro portrait
+      ipxland: "812px", // iPhone X-14 Pro landscape
+      ipmax: "430px", // iPhone 14 Pro Max portrait
+      ipmaxland: "932px", // iPhone 14 Pro Max landscape
       sm: "534px", // pc dev
       md: "640px", // Tablet M9 แนวตั้ง M9-2
       lg: "1072px", // Tablet M9 แนวนอน M9

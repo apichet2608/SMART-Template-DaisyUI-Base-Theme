@@ -1,6 +1,8 @@
 import { useTheme } from "next-themes";
+import { useEffect } from "react";
 
 const lightThemes = [
+  { label: "System", value: "system" },
   { label: "Fuji", value: "Fuji" },
   { label: "Light", value: "light" },
   { label: "Retro", value: "retro" },
@@ -42,16 +44,28 @@ const darkThemes = [
 const ThemeSwitch = () => {
   const { theme, setTheme } = useTheme();
 
-  const allThemes = [...lightThemes, ...darkThemes];
+  useEffect(() => {
+    console.log(theme);
+    // ถ้ายังไม่มีการกำหนด theme ใน localStorage, ให้ตั้งเป็น system
+    if (!localStorage.getItem("theme")) {
+      setTheme("system");
+    }
+  }, [theme, setTheme]);
 
   return (
     <div className="flex items-center space-x-2">
+      <label htmlFor="theme-select" className="sr-only">
+        Choose a theme
+      </label>
       <select
         id="theme-select"
-        value={theme}
+        value={theme || ""}
         onChange={(e) => setTheme(e.target.value)}
         className="select select-bordered w-full max-w-xs select-sm"
       >
+        <option disabled value="">
+          Select a theme
+        </option>
         <optgroup label="Light Themes">
           {lightThemes.map((themeOption) => (
             <option key={themeOption.value} value={themeOption.value}>

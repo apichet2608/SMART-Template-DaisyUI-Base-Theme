@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import ModalContent from "../../Components/ModalContent/ModalContent";
+import PostAPI from "../../Utility/API/PostWithoutToken";
 
 function Draf() {
   const [IS_Open, setIS_Open] = useState(false); // State สำหรับตรวจสอบสถานะของเครื่อง
 
+  PostAPI("TEST", "TEST");
   return (
-    <div>
+    <div className="container mx-auto">
       <button
         className="btn btn-primary "
         onClick={() => {
@@ -19,7 +21,7 @@ function Draf() {
         Content={
           <>
             <article className=" prose">
-              <h1>Modal Daisy UI</h1>
+              <h2>Modal Daisy UI</h2>
             </article>
             <div className="flex justify-end">
               <button
