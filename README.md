@@ -1,24 +1,38 @@
-# React Project
+# Smart Web App
 
-## Overview
-React is a JavaScript library for building user interfaces, developed and maintained by Facebook. It allows developers to build large, complex web applications by breaking the UI into reusable components. React manages the application’s state efficiently using a virtual DOM, which minimizes direct manipulation of the actual DOM and enhances performance.
+Smart Web App เป็นแอปพลิเคชันเว็บสมัยใหม่ที่ออกแบบเพื่อการใช้งานในระดับองค์กร พัฒนาด้วย Vite, React และ Tailwind CSS โดยรวมไลบรารี UI และเครื่องมือแสดงข้อมูลที่หลากหลาย รองรับการออกแบบที่ตอบสนองต่อทุกหน้าจอ (responsive design), Progressive Web App (PWA), และการปรับแต่งธีมเพื่อเพิ่มความสะดวกสบายในการใช้งาน
 
-This project demonstrates a simple application built with React. It features a structured component-based architecture, allowing easy scalability and maintainability.
+## รายละเอียดโปรเจกต์
 
-## Features
-- **Component-Based Architecture**: React encourages breaking down the user interface into small, reusable components.
-- **Virtual DOM**: Efficiently updates and renders components, improving performance.
-- **State and Props**: Manages the dynamic data flow within and between components.
-- **Hooks**: Simplifies the way you handle state and side effects (like fetching data or managing subscriptions).
-- **React Router**: Enables navigation and routing in single-page applications (SPAs).
+- **ชื่อโปรเจกต์:** smart-web-app
+- **เวอร์ชัน:** 1.0.0
+- **ประเภท:** โมดูล (ESM)
+- **สภาพแวดล้อม:** Vite สำหรับการพัฒนา, ESLint สำหรับตรวจสอบโค้ด และรองรับ PWA
 
-## Prerequisites
-Before running this project, make sure you have the following installed:
-- **Node.js** (version 16+ recommended)
-- **npm** or **yarn** (for package management)
+## ไลบรารีและเครื่องมือที่ใช้
 
-## Getting Started
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/yourusername/react-project.git
-   cd react-project
+### Dependencies หลัก
+
+- **@mui/material และ @mui/icons-material:** คอมโพเนนต์ UI และไอคอนจาก Material-UI
+- **antd:** คอมโพเนนต์ UI ในระดับองค์กรจาก Ant Design
+- **@emotion/react และ @emotion/styled:** ชุดเครื่องมือสำหรับจัดการ CSS-in-JS
+- **react-router-dom:** สำหรับการจัดการการนำทางในแอป
+- **axios:** สำหรับการทำ HTTP Requests ไปยัง API
+- **apexcharts และ react-apexcharts:** ไลบรารีสำหรับการแสดงกราฟข้อมูล
+- **sweetalert2 และ react-toastify:** เครื่องมือแสดงการแจ้งเตือนและคำเตือน
+- **localforage:** จัดการข้อมูลใน local storage
+- **xlsx และ papaparse:** สำหรับจัดการไฟล์ข้อมูล CSV และ Excel
+- **framer-motion:** ไลบรารีสำหรับการทำแอนิเมชันที่มีประสิทธิภาพสูง
+
+### Dev Dependencies
+
+- **eslint และ eslint-plugin-react:** ใช้ในการตรวจสอบคุณภาพโค้ด
+- **tailwindcss และ daisyUI:** เครื่องมือจัดการ CSS และธีมที่ยืดหยุ่นเพื่อการออกแบบ UI
+- **@vitejs/plugin-react:** ปลั๊กอิน Vite สำหรับรองรับ React
+- **@tailwindcss/typography:** ปลั๊กอิน TailwindCSS สำหรับการจัดการรูปแบบของข้อความ
+
+## คุณสมบัติพิเศษ
+
+- **PWA Support:** รองรับการทำงานในโหมดออฟไลน์ และสามารถเพิ่มแอปลงในหน้าแรกของอุปกรณ์ได้
+- **Responsive Design:** รองรับการใช้งานบนอุปกรณ์ทุกประเภท
+- **Data Visualization:** แสดงข้อมูลเชิงกราฟที่สวยงามและอินเทอร์แอคทีฟผ่าน ApexCharts
